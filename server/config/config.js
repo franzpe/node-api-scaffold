@@ -8,7 +8,7 @@ import {
   JWT
 } from 'babel-dotenv';
 
-var config = {
+const config = {
   dev: 'development',
   test: 'testing',
   prod: 'production',
@@ -30,7 +30,7 @@ var config = {
 process.env.NODE_ENV = process.env.NODE_ENV || config.dev;
 config.env = process.env.NODE_ENV;
 
-var envConfig;
+let envConfig;
 // require could error out if
 // the file don't exist so lets try this statement
 // and fallback to an empty object if it does error out

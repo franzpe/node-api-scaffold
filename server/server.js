@@ -25,4 +25,4 @@ app.use(function(err, req, res, next) {
 });
 
 // export the app for testing
-module.exports = app;
+export default app;

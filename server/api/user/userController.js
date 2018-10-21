@@ -35,22 +35,23 @@ exports.getOne = function(req, res, next) {
 };
 
 export const put = function(req, res, next) {
-  var user = req.user;
-  var update = req.body;
+  let user = req.user.toJSON();
+  const update = req.body;
 
   Object.assign(user, update);
 
+  // SAVE CAUSING BLUEBIRD WARNING
   new User(user)
     .save()
     .then(user => {
-      res.json(user);
+      return res.json(user.toJson());
     })
     .catch(err => next(err));
 };
 
 // Creates user in DB and sends token back
 export const post = function(req, res, next) {
-  var newUser = req.body;
+  const newUser = req.body;
   new User(newUser)
     .save()
     .then(user => {
@@ -81,5 +82,5 @@ export const del = function(req, res, next) {
 };
 
 export const me = function(req, res) {
-  res.json(req.user);
+  res.json(req.user.toJson());
 };

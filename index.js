@@ -1,3 +1,4 @@
+// starting point for our server
 import config from './server/config/config';
 import app from './server/server';
 import { Server } from 'http';

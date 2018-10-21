@@ -31,11 +31,14 @@ export const getFreshUser = function() {
     })
       .fetch()
       .then(user => {
-        if (user) {
-          req.user = user.toJSON();
-          next();
-        } else {
+        if (!user) {
+          // If the user wasn't found in our db but the JWT was valid
+          // Either user was deleted or jwt is from other source
           req.status(401).send('Unauthorized');
+        } else {
+          // Attach user to req.user to access it our controllers
+          req.user = user;
+          next();
         }
       })
       .catch(err => next(err));
@@ -44,14 +47,16 @@ export const getFreshUser = function() {
 
 export const verifyUser = function() {
   return function(req, res, next) {
-    var userName = req.body.userName;
-    var password = req.body.password;
+    const userName = req.body.userName;
+    const password = req.body.password;
 
     // if no username or password then send
     if (!userName || !password) {
       res.status(400).send('You need a username and password');
       return;
     }
+
+    // Look up the user in DB to password check
     User.collection()
       .fetchOne({
         userName
@@ -60,6 +65,7 @@ export const verifyUser = function() {
         if (!user) {
           res.status(401).send('No user with the given username');
         } else {
+          // Checking the passwords
           if (!user.authenticate(password)) {
             res.status(401).send('Wrong password');
           } else {
