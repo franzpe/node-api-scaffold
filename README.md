@@ -24,4 +24,8 @@ Create table User (
 )
 ```
 
-Server is also serving static files inside web folder. You may want to delete or change this functionality in appMiddleware.js (~/server/middleware/appMidleware)
+You can run server via npm script: npm start
+
+Server is also serving static files inside web folder. You may want to delete or change this functionality in appMiddleware.js (~/server/middleware/appMidleware). To access web in browser just type http://localhost:{PORT}/. 
+
+
