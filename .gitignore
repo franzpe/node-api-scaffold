@@ -1,0 +1,7 @@
+#folders to exclude
+node_modules
+
+#files to exclude
+.env
+.DS_STORE
+package-lock.json
