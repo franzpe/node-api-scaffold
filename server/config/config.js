@@ -23,8 +23,7 @@ const config = {
     user: DB_USER,
     password: DB_PASSWORD,
     database: DB_DATABASE
-  },
-  fcmServerKey: FCM_SERVER_KEY
+  }
 };
 
 process.env.NODE_ENV = process.env.NODE_ENV || config.dev;
