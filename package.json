@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon --exec BLUEBIRD_W_FORGOTTEN_RETURN=0 babel-node index.js",
-    "build": "babel server -d public"
+    "build": "babel server -d build"
   },
   "author": "",
   "license": "ISC",

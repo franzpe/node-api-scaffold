@@ -8,4 +8,4 @@ const router = Router();
 // for all our resources
 router.use('/users', userRoutes);
 
-module.exports = router;
+export default router;

@@ -8,4 +8,4 @@ const router = Router();
 // the password and username match what is in the DB
 router.post('/signin', verifyUser(), controller.signin);
 
-module.exports = router;
+export default router;

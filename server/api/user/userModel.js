@@ -44,4 +44,4 @@ const User = db.Model.extend({
   ...userMethods
 });
 
-module.exports = User;
+export default User;
