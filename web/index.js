@@ -16,7 +16,7 @@ const submitForm = function() {
         }`
       );
       // Store token to local storage
-      window.sessionStorage.accessToken = res.body.token;
+      window.localStorage.accessToken = res.body.token;
     })
     .catch(err => alert(err));
 
