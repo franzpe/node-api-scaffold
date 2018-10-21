@@ -9,13 +9,15 @@ const submitForm = function() {
 
   axios
     .post('http://localhost:3011/api/users', body)
-    .then(res =>
+    .then(res => {
       alert(
-        `User ${userName} has been created. Store JWT token in localstorage for further authorization. Token received: ${
+        `User ${userName} has been created. Store JWT token in local or session storage for further authorization. Token received: ${
           res.data.token
         }`
-      )
-    )
+      );
+      // Store token to local storage
+      window.sessionStorage.accessToken = res.body.token;
+    })
     .catch(err => alert(err));
 
   // Preventing from page refresh
