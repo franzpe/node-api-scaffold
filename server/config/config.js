@@ -1,12 +1,4 @@
-import {
-  DB_HOST,
-  DB_USER,
-  DB_PASSWORD,
-  DB_DATABASE,
-  FCM_SERVER_KEY,
-  PORT,
-  JWT
-} from 'babel-dotenv';
+import { DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE, PORT, JWT } from 'babel-dotenv';
 
 const config = {
   dev: 'development',
@@ -45,7 +37,6 @@ try {
 // merge the two config files together
 // the envConfig file will overwrite properties
 // on the config object
-// export default Object.assign(config, envConfig.default);
 export default {
   ...config,
   ...envConfig.default

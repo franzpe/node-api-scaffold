@@ -57,10 +57,8 @@ export const verifyUser = function() {
     }
 
     // Look up the user in DB to password check
-    User.collection()
-      .fetchOne({
-        userName
-      })
+    User.forge({ userName })
+      .fetch()
       .then(user => {
         if (!user) {
           res.status(401).send('No user with the given username');

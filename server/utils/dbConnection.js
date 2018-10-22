@@ -1,7 +1,8 @@
-import config from '../config/config';
-import cascadeDelete from 'bookshelf-cascade-delete';
 import knex from 'knex';
 import bookshelf from 'bookshelf';
+
+import config from '../config/config';
+import cascadeDelete from 'bookshelf-cascade-delete';
 
 const knexInstance = knex({
   client: 'mysql',

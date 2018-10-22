@@ -52,7 +52,7 @@ export const put = function(req, res, next) {
 // Creates user in DB and sends token back
 export const post = function(req, res, next) {
   const newUser = req.body;
-  console.log(newUser);
+
   new User(newUser)
     .save()
     .then(user => {

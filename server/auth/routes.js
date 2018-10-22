@@ -1,4 +1,5 @@
 import { Router } from 'express';
+
 import { verifyUser } from './auth';
 import * as controller from './controller';
 
